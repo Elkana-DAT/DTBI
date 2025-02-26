@@ -6,13 +6,13 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
-<body style="background-image: url(assets/images/tower.jpg);">
+<body background="assets/images/tower.jpg">
 	<section class="page">
 	<div class="container" id="contact-form-container">
 		<form method="post" 
 		action="https://script.google.com/macros/s/AKfycbyGApMko2cm6NJroRIIhcmnrEwtLe2O4FeqYhcE6WXUo3UpqM9cLX25GOUJ46yL-GqGcw/exec" 
 		name="contact-form">
-			<h4>Drive Test Work Done</h4>
+			<h4>Drive TEst Work Done</h4>
 			<input type="text" name="ENGINEER NAME" placeholder="Engineer Name">
 			<input type="text" name="CAR USED" placeholder="Car Used">
 			<input type="text" name="CAR OWNER" placeholder="Car Owner">
@@ -60,12 +60,19 @@
 			<input type="text" name="MTN" placeholder="MTN">
 			<input type="text" name="VDF" placeholder="VDF">
 			<input type="text" name="CLUSTER TYPE" placeholder="Cluster Type">
+			<input type="text" name="DATE" id="date-input" readonly>
 			<input type="submit" value="Submit" id="submit">
 		</form>
 	</div>
 	</section>
-	<script src="assets/js/Google Sheet.js"></script>
+	<script src="Google Sheet.js"></script>
 	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const dateInput = document.getElementById('date-input');
+			const now = new Date();
+			dateInput.value = now.toLocaleDateString();
+		});
+
 		document.getElementById('add-site-button').addEventListener('click', function() {
 			const siteInput = document.getElementById('site-list-input');
 			const siteList = document.getElementById('site-list');
