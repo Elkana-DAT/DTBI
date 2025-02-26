@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="assets/stylesheet/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body style="background-image: url(assets/images/tower.jpg);">
+	<section class="page">
+	<div class="container" id="contact-form-container">
+		<form method="post" 
+		action="https://script.google.com/macros/s/AKfycbyGApMko2cm6NJroRIIhcmnrEwtLe2O4FeqYhcE6WXUo3UpqM9cLX25GOUJ46yL-GqGcw/exec" 
+		name="contact-form">
+			<h4>Drive TEst Work Done</h4>
+			<input type="text" name="ENGINEER NAME" placeholder="Engineer Name">
+			<input type="text" name="CAR USED" placeholder="Car Used">
+			<input type="text" name="CAR OWNER" placeholder="Car Owner">
+			
+			<select name="WORK TYPE">
+				<option value="195 POST MIMO">195 POST MIMO</option>
+				<option value="L2600">L2600</option>
+				<option value="294 PRE MIMO">294 PRE MIMO</option>
+				<option value="294 POST MIMO">294 POST MIMO</option>
+				<option value="TELECEL SSV">TELECEL SSV</option>
+				<option value="CLUSTER">CLUSTER</option>
+			</select>
+			
+			<div class="input-row">
+				<select name="REGION">
+					<option value="Ahafo">Ahafo</option>
+					<option value="Ashanti">Ashanti</option>
+					<option value="Bono">Bono</option>
+					<option value="Bono East">Bono East</option>
+					<option value="Central">Central</option>
+					<option value="Eastern">Eastern</option>
+					<option value="Greater Accra">Greater Accra</option>
+					<option value="North East">North East</option>
+					<option value="Northern">Northern</option>
+					<option value="Oti">Oti</option>
+					<option value="Savannah">Savannah</option>
+					<option value="Upper East">Upper East</option>
+					<option value="Upper West">Upper West</option>
+					<option value="Volta">Volta</option>
+					<option value="Western">Western</option>
+					<option value="Western North">Western North</option>
+				</select>
+				
+				<div class="input-group">
+					<input type="text" id="site-list-input" placeholder="Add Site ID">
+					<button type="button" id="add-site-button"><i class="fas fa-plus"></i></button>
+				</div>
+			</div>
+			
+			<ul id="site-list"></ul>
+			
+			<input type="text" name="PRE(MIMO)" placeholder="PRE(MIMO)">
+			<input type="text" name="POST REDRIVE" placeholder="Post Redrive">
+			<input type="text" name="SWAP CHECK/CC" placeholder="Swap Check/CC">
+			<input type="text" name="MTN" placeholder="MTN">
+			<input type="text" name="VDF" placeholder="VDF">
+			<input type="text" name="CLUSTER TYPE" placeholder="Cluster Type">
+			<input type="submit" value="Submit" id="submit">
+		</form>
+	</div>
+	</section>
+	<script src="assets/js/Google Sheet.js"></script>
+	<script>
+		document.getElementById('add-site-button').addEventListener('click', function() {
+			const siteInput = document.getElementById('site-list-input');
+			const siteList = document.getElementById('site-list');
+			if (siteInput.value.trim() !== '') {
+				const li = document.createElement('li');
+				li.textContent = siteInput.value;
+				const closeButton = document.createElement('button');
+				closeButton.innerHTML = '<i class="fas fa-times"></i>';
+				closeButton.addEventListener('click', function() {
+					siteList.removeChild(li);
+				});
+				li.appendChild(closeButton);
+				siteList.appendChild(li);
+				siteInput.value = '';
+			}
+		});
+	</script>
+</body>
+
+</html>
